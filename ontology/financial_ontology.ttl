@@ -1,4 +1,4 @@
-@prefix : <http://www.semanticexpert.ai/ontology/financial#> .
+@prefix : <http://www.semanticdataservices.com/ontology/financial#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -9,7 +9,7 @@
 
 # =============================================================================
 # FINANCIAL IDR ONTOLOGY
-# Semantic Expert AI - Company Semantic Data Services
+# Semantic Data Services
 # Version: 1.0.0
 # Author: Rajesh Kumar Gupta
 # =============================================================================
@@ -18,21 +18,21 @@
 @prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
 @prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
 @prefix fibo-sec: <https://spec.edmcouncil.org/fibo/ontology/SEC/> .
-@prefix sei: <http://www.semanticexpert.ai/ontology/> .
-@prefix sei-co: <http://www.semanticexpert.ai/ontology/company#> .
-@prefix sei-fin: <http://www.semanticexpert.ai/ontology/financial#> .
-@prefix sei-doc: <http://www.semanticexpert.ai/ontology/document#> .
-@prefix sei-risk: <http://www.semanticexpert.ai/ontology/risk#> .
-@prefix sei-econ: <http://www.semanticexpert.ai/ontology/economic#> .
+@prefix sei: <http://www.semanticdataservices.com/ontology/> .
+@prefix sei-co: <http://www.semanticdataservices.com/ontology/company#> .
+@prefix sei-fin: <http://www.semanticdataservices.com/ontology/financial#> .
+@prefix sei-doc: <http://www.semanticdataservices.com/ontology/document#> .
+@prefix sei-risk: <http://www.semanticdataservices.com/ontology/risk#> .
+@prefix sei-econ: <http://www.semanticdataservices.com/ontology/economic#> .
 
 # =============================================================================
 # ONTOLOGY DECLARATION
 # =============================================================================
 
-<http://www.semanticexpert.ai/ontology/financial>
+<http://www.semanticdataservices.com/ontology/financial>
     rdf:type owl:Ontology ;
-    owl:versionIRI <http://www.semanticexpert.ai/ontology/financial/1.0.0> ;
-    dcterms:title "Semantic Expert Financial IDR Ontology"@en ;
+    owl:versionIRI <http://www.semanticdataservices.com/ontology/financial/1.0.0> ;
+    dcterms:title "Semantic Data Services Financial IDR Ontology"@en ;
     dcterms:description "A comprehensive ontology for Intelligent Document Recognition in the financial domain, supporting 10-K/10-Q filings, macroeconomic data, and company semantic services."@en ;
     dcterms:creator "Rajesh Kumar Gupta" ;
     dcterms:created "2024-12-01"^^xsd:date ;

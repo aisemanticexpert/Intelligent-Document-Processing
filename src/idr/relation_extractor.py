@@ -122,18 +122,18 @@ class RelationExtractor:
     
     # Ontology property mapping
     ONTOLOGY_PROPERTIES = {
-        "COMPETES_WITH": "http://www.semanticexpert.ai/ontology/company#competesWith",
-        "PARTNERS_WITH": "http://www.semanticexpert.ai/ontology/company#partnersWith",
-        "ACQUIRED": "http://www.semanticexpert.ai/ontology/company#acquired",
-        "SUBSIDIARY_OF": "http://www.semanticexpert.ai/ontology/company#isSubsidiaryOf",
-        "REPORTED": "http://www.semanticexpert.ai/ontology/financial#reportedIn",
-        "GENERATED": "http://www.semanticexpert.ai/ontology/financial#hasFinancialMetric",
-        "FACES_RISK": "http://www.semanticexpert.ai/ontology/risk#facesRisk",
-        "MANUFACTURES": "http://www.semanticexpert.ai/ontology/company#manufactures",
-        "SELLS": "http://www.semanticexpert.ai/ontology/company#sells",
-        "CEO_OF": "http://www.semanticexpert.ai/ontology/company#isCEOOf",
-        "WORKS_AT": "http://www.semanticexpert.ai/ontology/company#worksAt",
-        "IMPACTED_BY": "http://www.semanticexpert.ai/ontology/economic#impactedBy",
+        "COMPETES_WITH": "http://www.semanticdataservices.com/ontology/company#competesWith",
+        "PARTNERS_WITH": "http://www.semanticdataservices.com/ontology/company#partnersWith",
+        "ACQUIRED": "http://www.semanticdataservices.com/ontology/company#acquired",
+        "SUBSIDIARY_OF": "http://www.semanticdataservices.com/ontology/company#isSubsidiaryOf",
+        "REPORTED": "http://www.semanticdataservices.com/ontology/financial#reportedIn",
+        "GENERATED": "http://www.semanticdataservices.com/ontology/financial#hasFinancialMetric",
+        "FACES_RISK": "http://www.semanticdataservices.com/ontology/risk#facesRisk",
+        "MANUFACTURES": "http://www.semanticdataservices.com/ontology/company#manufactures",
+        "SELLS": "http://www.semanticdataservices.com/ontology/company#sells",
+        "CEO_OF": "http://www.semanticdataservices.com/ontology/company#isCEOOf",
+        "WORKS_AT": "http://www.semanticdataservices.com/ontology/company#worksAt",
+        "IMPACTED_BY": "http://www.semanticdataservices.com/ontology/economic#impactedBy",
     }
     
     # Valid entity type pairs for each relation

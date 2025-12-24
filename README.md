@@ -206,11 +206,11 @@ for entity in entities:
 
 | Prefix | Namespace | Description |
 |--------|-----------|-------------|
-| sei-co | `http://www.semanticexpert.ai/ontology/company#` | Company entities |
-| sei-fin | `http://www.semanticexpert.ai/ontology/financial#` | Financial metrics |
-| sei-doc | `http://www.semanticexpert.ai/ontology/document#` | Document types |
-| sei-risk | `http://www.semanticexpert.ai/ontology/risk#` | Risk factors |
-| sei-econ | `http://www.semanticexpert.ai/ontology/economic#` | Economic indicators |
+| sei-co | `http://www.semanticdataservices.com/ontology/company#` | Company entities |
+| sei-fin | `http://www.semanticdataservices.com/ontology/financial#` | Financial metrics |
+| sei-doc | `http://www.semanticdataservices.com/ontology/document#` | Document types |
+| sei-risk | `http://www.semanticdataservices.com/ontology/risk#` | Risk factors |
+| sei-econ | `http://www.semanticdataservices.com/ontology/economic#` | Economic indicators |
 
 ### Supported Entity Types
 
@@ -270,7 +270,7 @@ knowledge_graph:
   "text": "Apple",
   "entity_type": "Company",
   "confidence": 0.95,
-  "ontology_class": "http://www.semanticexpert.ai/ontology/company#PublicCompany",
+  "ontology_class": "http://www.semanticdataservices.com/ontology/company#PublicCompany",
   "properties": {"ticker": "AAPL"}
 }
 ```

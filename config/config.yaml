@@ -15,7 +15,7 @@ data_sources:
     enabled: true
     base_url: "https://www.sec.gov/cgi-bin/browse-edgar"
     api_url: "https://data.sec.gov"
-    user_agent: "SemanticExpertAI/1.0 (contact@semanticexpert.ai)"
+    user_agent: "SemanticDataServices/1.0 (contact@semanticdataservices.com)"
     rate_limit: 10  # requests per second
     filing_types:
       - "10-K"

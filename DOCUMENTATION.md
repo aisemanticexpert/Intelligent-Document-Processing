@@ -467,11 +467,11 @@ class ExtractedRelation:
 ### Namespaces
 
 ```turtle
-@prefix sei-co:   <http://www.semanticexpert.ai/ontology/company#>
-@prefix sei-fin:  <http://www.semanticexpert.ai/ontology/financial#>
-@prefix sei-doc:  <http://www.semanticexpert.ai/ontology/document#>
-@prefix sei-risk: <http://www.semanticexpert.ai/ontology/risk#>
-@prefix sei-econ: <http://www.semanticexpert.ai/ontology/economic#>
+@prefix sei-co:   <http://www.semanticdataservices.com/ontology/company#>
+@prefix sei-fin:  <http://www.semanticdataservices.com/ontology/financial#>
+@prefix sei-doc:  <http://www.semanticdataservices.com/ontology/document#>
+@prefix sei-risk: <http://www.semanticdataservices.com/ontology/risk#>
+@prefix sei-econ: <http://www.semanticdataservices.com/ontology/economic#>
 @prefix fibo:     <https://spec.edmcouncil.org/fibo/ontology/>
 ```
 
@@ -597,18 +597,18 @@ ONTOLOGY_PROPERTIES = {
 **1. Entity Type to Ontology Class**:
 ```python
 entity_type_mapping = {
-    "Company": "http://www.semanticexpert.ai/ontology/company#PublicCompany",
-    "Revenue": "http://www.semanticexpert.ai/ontology/financial#Revenue",
-    "SupplyChainRisk": "http://www.semanticexpert.ai/ontology/risk#SupplyChainRisk",
+    "Company": "http://www.semanticdataservices.com/ontology/company#PublicCompany",
+    "Revenue": "http://www.semanticdataservices.com/ontology/financial#Revenue",
+    "SupplyChainRisk": "http://www.semanticdataservices.com/ontology/risk#SupplyChainRisk",
 }
 ```
 
 **2. Relation Type to Ontology Property**:
 ```python
 relation_type_mapping = {
-    "COMPETES_WITH": "http://www.semanticexpert.ai/ontology/company#competesWith",
-    "REPORTED": "http://www.semanticexpert.ai/ontology/financial#hasFinancialMetric",
-    "FACES_RISK": "http://www.semanticexpert.ai/ontology/risk#facesRisk",
+    "COMPETES_WITH": "http://www.semanticdataservices.com/ontology/company#competesWith",
+    "REPORTED": "http://www.semanticdataservices.com/ontology/financial#hasFinancialMetric",
+    "FACES_RISK": "http://www.semanticdataservices.com/ontology/risk#facesRisk",
 }
 ```
 
@@ -626,11 +626,11 @@ schema = get_ontology_schema()
 
 # Map entity type
 ontology_class = schema.map_entity_type("Company")
-# → "http://www.semanticexpert.ai/ontology/company#PublicCompany"
+# → "http://www.semanticdataservices.com/ontology/company#PublicCompany"
 
 # Map relation type
 ontology_property = schema.map_relation_type("COMPETES_WITH")
-# → "http://www.semanticexpert.ai/ontology/company#competesWith"
+# → "http://www.semanticdataservices.com/ontology/company#competesWith"
 
 # Validate relation
 valid = schema.validate_relation("Company", "COMPETES_WITH", "Company")
@@ -806,8 +806,8 @@ graph_builder.to_rdf()
 
 Output:
 ```turtle
-@prefix sei-co: <http://www.semanticexpert.ai/ontology/company#> .
-@prefix sei-fin: <http://www.semanticexpert.ai/ontology/financial#> .
+@prefix sei-co: <http://www.semanticdataservices.com/ontology/company#> .
+@prefix sei-fin: <http://www.semanticdataservices.com/ontology/financial#> .
 
 sei-co:apple_inc_a1b2c3d4 a sei-co:PublicCompany ;
     rdfs:label "Apple Inc." ;

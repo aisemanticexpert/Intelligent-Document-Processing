@@ -24,12 +24,12 @@ logger = logging.getLogger(__name__)
 
 class OntologyNamespace(Enum):
     """Ontology namespace prefixes"""
-    SEI = "http://www.semanticexpert.ai/ontology/"
-    SEI_CO = "http://www.semanticexpert.ai/ontology/company#"
-    SEI_FIN = "http://www.semanticexpert.ai/ontology/financial#"
-    SEI_DOC = "http://www.semanticexpert.ai/ontology/document#"
-    SEI_RISK = "http://www.semanticexpert.ai/ontology/risk#"
-    SEI_ECON = "http://www.semanticexpert.ai/ontology/economic#"
+    SEI = "http://www.semanticdataservices.com/ontology/"
+    SEI_CO = "http://www.semanticdataservices.com/ontology/company#"
+    SEI_FIN = "http://www.semanticdataservices.com/ontology/financial#"
+    SEI_DOC = "http://www.semanticdataservices.com/ontology/document#"
+    SEI_RISK = "http://www.semanticdataservices.com/ontology/risk#"
+    SEI_ECON = "http://www.semanticdataservices.com/ontology/economic#"
     FIBO_FND = "https://spec.edmcouncil.org/fibo/ontology/FND/"
     FIBO_BE = "https://spec.edmcouncil.org/fibo/ontology/BE/"
 

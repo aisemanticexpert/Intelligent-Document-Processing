@@ -11,7 +11,7 @@ setup(
     name="financial-idr",
     version="1.0.0",
     author="Rajesh Kumar Gupta",
-    author_email="contact@semanticexpert.ai",
+    author_email="contact@semanticdataservices.com",
     description="Intelligent Document Recognition for Financial Documents with Knowledge Graph",
     long_description=long_description,
     long_description_content_type="text/markdown",

@@ -1,6 +1,6 @@
 """
-Semantic Expert AI - Financial IDR Ontology Namespaces
-======================================================
+Semantic Data Services - Financial IDR Ontology Namespaces
+==========================================================
 
 This module defines RDF namespaces for the Financial IDR Ontology,
 providing programmatic access to ontology classes, properties, and relationships.
@@ -32,13 +32,13 @@ FIBO_FND = Namespace("https://spec.edmcouncil.org/fibo/ontology/FND/")
 FIBO_BE = Namespace("https://spec.edmcouncil.org/fibo/ontology/BE/")
 FIBO_SEC = Namespace("https://spec.edmcouncil.org/fibo/ontology/SEC/")
 
-# Semantic Expert AI Namespaces
-SEI = Namespace("http://www.semanticexpert.ai/ontology/")
-SEI_CO = Namespace("http://www.semanticexpert.ai/ontology/company#")
-SEI_FIN = Namespace("http://www.semanticexpert.ai/ontology/financial#")
-SEI_DOC = Namespace("http://www.semanticexpert.ai/ontology/document#")
-SEI_RISK = Namespace("http://www.semanticexpert.ai/ontology/risk#")
-SEI_ECON = Namespace("http://www.semanticexpert.ai/ontology/economic#")
+# Semantic Data Services Namespaces
+SEI = Namespace("http://www.semanticdataservices.com/ontology/")
+SEI_CO = Namespace("http://www.semanticdataservices.com/ontology/company#")
+SEI_FIN = Namespace("http://www.semanticdataservices.com/ontology/financial#")
+SEI_DOC = Namespace("http://www.semanticdataservices.com/ontology/document#")
+SEI_RISK = Namespace("http://www.semanticdataservices.com/ontology/risk#")
+SEI_ECON = Namespace("http://www.semanticdataservices.com/ontology/economic#")
 
 # All namespaces dictionary for binding
 NAMESPACE_BINDINGS = {
