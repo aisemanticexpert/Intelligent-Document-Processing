@@ -1,0 +1,665 @@
+@prefix : <http://www.semanticexpert.ai/ontology/financial#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# =============================================================================
+# FINANCIAL IDR ONTOLOGY
+# Semantic Expert AI - Company Semantic Data Services
+# Version: 1.0.0
+# Author: Rajesh Kumar Gupta
+# =============================================================================
+
+# Namespace Definitions
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix fibo-sec: <https://spec.edmcouncil.org/fibo/ontology/SEC/> .
+@prefix sei: <http://www.semanticexpert.ai/ontology/> .
+@prefix sei-co: <http://www.semanticexpert.ai/ontology/company#> .
+@prefix sei-fin: <http://www.semanticexpert.ai/ontology/financial#> .
+@prefix sei-doc: <http://www.semanticexpert.ai/ontology/document#> .
+@prefix sei-risk: <http://www.semanticexpert.ai/ontology/risk#> .
+@prefix sei-econ: <http://www.semanticexpert.ai/ontology/economic#> .
+
+# =============================================================================
+# ONTOLOGY DECLARATION
+# =============================================================================
+
+<http://www.semanticexpert.ai/ontology/financial>
+    rdf:type owl:Ontology ;
+    owl:versionIRI <http://www.semanticexpert.ai/ontology/financial/1.0.0> ;
+    dcterms:title "Semantic Expert Financial IDR Ontology"@en ;
+    dcterms:description "A comprehensive ontology for Intelligent Document Recognition in the financial domain, supporting 10-K/10-Q filings, macroeconomic data, and company semantic services."@en ;
+    dcterms:creator "Rajesh Kumar Gupta" ;
+    dcterms:created "2024-12-01"^^xsd:date ;
+    owl:imports <https://spec.edmcouncil.org/fibo/ontology/FND/Organizations/Organizations/> .
+
+# =============================================================================
+# COMPANY CLASSES (sei-co namespace)
+# =============================================================================
+
+sei-co:Organization rdf:type owl:Class ;
+    rdfs:label "Organization"@en ;
+    rdfs:comment "A legal entity or group of individuals organized for a purpose."@en ;
+    skos:definition "The base class for all organizational entities."@en .
+
+sei-co:Company rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:Organization ;
+    rdfs:label "Company"@en ;
+    rdfs:comment "A business entity engaged in commercial, industrial, or professional activities."@en ;
+    skos:example "Apple Inc., Microsoft Corporation"@en .
+
+sei-co:PublicCompany rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:Company ;
+    rdfs:label "Public Company"@en ;
+    rdfs:comment "A company whose shares are traded on a public stock exchange."@en .
+
+sei-co:PrivateCompany rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:Company ;
+    rdfs:label "Private Company"@en ;
+    rdfs:comment "A company not listed on public exchanges."@en .
+
+sei-co:Subsidiary rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:Company ;
+    rdfs:label "Subsidiary"@en ;
+    rdfs:comment "A company controlled by another company (parent)."@en .
+
+sei-co:Supplier rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:Organization ;
+    rdfs:label "Supplier"@en ;
+    rdfs:comment "An organization that provides goods or services."@en .
+
+sei-co:Competitor rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:Company ;
+    rdfs:label "Competitor"@en ;
+    rdfs:comment "A company competing in the same market."@en .
+
+# Industry Sector Classes
+sei-co:IndustrySector rdf:type owl:Class ;
+    rdfs:label "Industry Sector"@en ;
+    rdfs:comment "A classification of business activities."@en .
+
+sei-co:TechnologySector rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:IndustrySector ;
+    rdfs:label "Technology Sector"@en .
+
+sei-co:HealthcareSector rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:IndustrySector ;
+    rdfs:label "Healthcare Sector"@en .
+
+sei-co:FinancialSector rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:IndustrySector ;
+    rdfs:label "Financial Services Sector"@en .
+
+sei-co:ConsumerSector rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:IndustrySector ;
+    rdfs:label "Consumer Goods Sector"@en .
+
+sei-co:EnergySector rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:IndustrySector ;
+    rdfs:label "Energy Sector"@en .
+
+sei-co:IndustrialsSector rdf:type owl:Class ;
+    rdfs:subClassOf sei-co:IndustrySector ;
+    rdfs:label "Industrials Sector"@en .
+
+# =============================================================================
+# FINANCIAL CLASSES (sei-fin namespace)
+# =============================================================================
+
+sei-fin:FinancialInstrument rdf:type owl:Class ;
+    rdfs:label "Financial Instrument"@en ;
+    rdfs:comment "A tradeable asset or contract."@en .
+
+sei-fin:Security rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialInstrument ;
+    rdfs:label "Security"@en ;
+    rdfs:comment "A tradeable financial asset."@en .
+
+sei-fin:Equity rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:Security ;
+    rdfs:label "Equity"@en ;
+    rdfs:comment "Ownership interest in a company."@en .
+
+sei-fin:CommonStock rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:Equity ;
+    rdfs:label "Common Stock"@en .
+
+sei-fin:PreferredStock rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:Equity ;
+    rdfs:label "Preferred Stock"@en .
+
+sei-fin:Bond rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:Security ;
+    rdfs:label "Bond"@en ;
+    rdfs:comment "A debt security."@en .
+
+sei-fin:Derivative rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialInstrument ;
+    rdfs:label "Derivative"@en ;
+    rdfs:comment "A contract whose value derives from an underlying asset."@en .
+
+# Financial Metrics Classes
+sei-fin:FinancialMetric rdf:type owl:Class ;
+    rdfs:label "Financial Metric"@en ;
+    rdfs:comment "A quantitative measure of financial performance."@en .
+
+sei-fin:Revenue rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Revenue"@en ;
+    skos:altLabel "Sales", "Net Sales", "Total Revenue"@en .
+
+sei-fin:NetIncome rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Net Income"@en ;
+    skos:altLabel "Profit", "Earnings", "Net Profit"@en .
+
+sei-fin:GrossProfit rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Gross Profit"@en .
+
+sei-fin:OperatingIncome rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Operating Income"@en ;
+    skos:altLabel "EBIT", "Operating Profit"@en .
+
+sei-fin:EBITDA rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "EBITDA"@en ;
+    rdfs:comment "Earnings Before Interest, Taxes, Depreciation and Amortization."@en .
+
+sei-fin:EarningsPerShare rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Earnings Per Share"@en ;
+    skos:altLabel "EPS"@en .
+
+sei-fin:TotalAssets rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Total Assets"@en .
+
+sei-fin:TotalLiabilities rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Total Liabilities"@en .
+
+sei-fin:ShareholdersEquity rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Shareholders Equity"@en ;
+    skos:altLabel "Stockholders Equity", "Book Value"@en .
+
+sei-fin:CashFlow rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Cash Flow"@en .
+
+sei-fin:OperatingCashFlow rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:CashFlow ;
+    rdfs:label "Operating Cash Flow"@en .
+
+sei-fin:FreeCashFlow rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:CashFlow ;
+    rdfs:label "Free Cash Flow"@en .
+
+# Financial Ratios
+sei-fin:FinancialRatio rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialMetric ;
+    rdfs:label "Financial Ratio"@en .
+
+sei-fin:PriceToEarnings rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialRatio ;
+    rdfs:label "Price to Earnings Ratio"@en ;
+    skos:altLabel "P/E Ratio"@en .
+
+sei-fin:DebtToEquity rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialRatio ;
+    rdfs:label "Debt to Equity Ratio"@en .
+
+sei-fin:ReturnOnEquity rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialRatio ;
+    rdfs:label "Return on Equity"@en ;
+    skos:altLabel "ROE"@en .
+
+sei-fin:ReturnOnAssets rdf:type owl:Class ;
+    rdfs:subClassOf sei-fin:FinancialRatio ;
+    rdfs:label "Return on Assets"@en ;
+    skos:altLabel "ROA"@en .
+
+# =============================================================================
+# DOCUMENT CLASSES (sei-doc namespace)
+# =============================================================================
+
+sei-doc:Document rdf:type owl:Class ;
+    rdfs:label "Document"@en ;
+    rdfs:comment "A written or electronic record."@en .
+
+sei-doc:RegulatoryFiling rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:Document ;
+    rdfs:label "Regulatory Filing"@en ;
+    rdfs:comment "A document filed with a regulatory body."@en .
+
+sei-doc:SECFiling rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:RegulatoryFiling ;
+    rdfs:label "SEC Filing"@en ;
+    rdfs:comment "A document filed with the U.S. Securities and Exchange Commission."@en .
+
+sei-doc:Form10K rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:SECFiling ;
+    rdfs:label "Form 10-K"@en ;
+    rdfs:comment "Annual report filed by public companies."@en ;
+    skos:definition "A comprehensive summary of a company's financial performance."@en .
+
+sei-doc:Form10Q rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:SECFiling ;
+    rdfs:label "Form 10-Q"@en ;
+    rdfs:comment "Quarterly report filed by public companies."@en .
+
+sei-doc:Form8K rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:SECFiling ;
+    rdfs:label "Form 8-K"@en ;
+    rdfs:comment "Current report for material events."@en .
+
+sei-doc:ProxyStatement rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:SECFiling ;
+    rdfs:label "Proxy Statement"@en ;
+    skos:altLabel "DEF 14A"@en .
+
+sei-doc:EquityResearchReport rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:Document ;
+    rdfs:label "Equity Research Report"@en .
+
+sei-doc:EarningsCallTranscript rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:Document ;
+    rdfs:label "Earnings Call Transcript"@en .
+
+sei-doc:PressRelease rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:Document ;
+    rdfs:label "Press Release"@en .
+
+# Document Sections (for 10-K)
+sei-doc:DocumentSection rdf:type owl:Class ;
+    rdfs:label "Document Section"@en .
+
+sei-doc:BusinessDescription rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:DocumentSection ;
+    rdfs:label "Business Description"@en ;
+    rdfs:comment "Item 1 of Form 10-K"@en .
+
+sei-doc:RiskFactors rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:DocumentSection ;
+    rdfs:label "Risk Factors"@en ;
+    rdfs:comment "Item 1A of Form 10-K"@en .
+
+sei-doc:ManagementDiscussion rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:DocumentSection ;
+    rdfs:label "Management Discussion and Analysis"@en ;
+    skos:altLabel "MD&A"@en ;
+    rdfs:comment "Item 7 of Form 10-K"@en .
+
+sei-doc:FinancialStatements rdf:type owl:Class ;
+    rdfs:subClassOf sei-doc:DocumentSection ;
+    rdfs:label "Financial Statements"@en ;
+    rdfs:comment "Item 8 of Form 10-K"@en .
+
+# =============================================================================
+# RISK CLASSES (sei-risk namespace)
+# =============================================================================
+
+sei-risk:Risk rdf:type owl:Class ;
+    rdfs:label "Risk"@en ;
+    rdfs:comment "A potential event or condition that may negatively impact an entity."@en .
+
+sei-risk:OperationalRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:Risk ;
+    rdfs:label "Operational Risk"@en .
+
+sei-risk:SupplyChainRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:OperationalRisk ;
+    rdfs:label "Supply Chain Risk"@en .
+
+sei-risk:CybersecurityRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:OperationalRisk ;
+    rdfs:label "Cybersecurity Risk"@en .
+
+sei-risk:FinancialRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:Risk ;
+    rdfs:label "Financial Risk"@en .
+
+sei-risk:CreditRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:FinancialRisk ;
+    rdfs:label "Credit Risk"@en .
+
+sei-risk:LiquidityRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:FinancialRisk ;
+    rdfs:label "Liquidity Risk"@en .
+
+sei-risk:MarketRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:FinancialRisk ;
+    rdfs:label "Market Risk"@en .
+
+sei-risk:CurrencyRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:MarketRisk ;
+    rdfs:label "Currency Risk"@en ;
+    skos:altLabel "Foreign Exchange Risk", "FX Risk"@en .
+
+sei-risk:InterestRateRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:MarketRisk ;
+    rdfs:label "Interest Rate Risk"@en .
+
+sei-risk:RegulatoryRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:Risk ;
+    rdfs:label "Regulatory Risk"@en ;
+    skos:altLabel "Compliance Risk"@en .
+
+sei-risk:GeopoliticalRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:Risk ;
+    rdfs:label "Geopolitical Risk"@en .
+
+sei-risk:CompetitiveRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:Risk ;
+    rdfs:label "Competitive Risk"@en .
+
+sei-risk:TechnologyRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:Risk ;
+    rdfs:label "Technology Risk"@en .
+
+sei-risk:ReputationalRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:Risk ;
+    rdfs:label "Reputational Risk"@en .
+
+sei-risk:EnvironmentalRisk rdf:type owl:Class ;
+    rdfs:subClassOf sei-risk:Risk ;
+    rdfs:label "Environmental Risk"@en ;
+    skos:altLabel "Climate Risk", "ESG Risk"@en .
+
+# =============================================================================
+# ECONOMIC CLASSES (sei-econ namespace)
+# =============================================================================
+
+sei-econ:EconomicIndicator rdf:type owl:Class ;
+    rdfs:label "Economic Indicator"@en ;
+    rdfs:comment "A statistic about economic activity."@en .
+
+sei-econ:MacroeconomicIndicator rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:EconomicIndicator ;
+    rdfs:label "Macroeconomic Indicator"@en .
+
+sei-econ:GDP rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:MacroeconomicIndicator ;
+    rdfs:label "Gross Domestic Product"@en ;
+    skos:altLabel "GDP"@en .
+
+sei-econ:InflationRate rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:MacroeconomicIndicator ;
+    rdfs:label "Inflation Rate"@en ;
+    skos:altLabel "CPI"@en .
+
+sei-econ:UnemploymentRate rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:MacroeconomicIndicator ;
+    rdfs:label "Unemployment Rate"@en .
+
+sei-econ:InterestRate rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:MacroeconomicIndicator ;
+    rdfs:label "Interest Rate"@en .
+
+sei-econ:FederalFundsRate rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:InterestRate ;
+    rdfs:label "Federal Funds Rate"@en .
+
+sei-econ:ConsumerConfidence rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:MacroeconomicIndicator ;
+    rdfs:label "Consumer Confidence Index"@en .
+
+sei-econ:PMI rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:MacroeconomicIndicator ;
+    rdfs:label "Purchasing Managers Index"@en ;
+    skos:altLabel "PMI"@en .
+
+sei-econ:TradeBalance rdf:type owl:Class ;
+    rdfs:subClassOf sei-econ:MacroeconomicIndicator ;
+    rdfs:label "Trade Balance"@en .
+
+# =============================================================================
+# OBJECT PROPERTIES (Relationships)
+# =============================================================================
+
+# Company Relationships
+sei-co:hasSubsidiary rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range sei-co:Subsidiary ;
+    rdfs:label "has subsidiary"@en ;
+    owl:inverseOf sei-co:isSubsidiaryOf .
+
+sei-co:isSubsidiaryOf rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:Subsidiary ;
+    rdfs:range sei-co:Company ;
+    rdfs:label "is subsidiary of"@en .
+
+sei-co:competesWith rdf:type owl:ObjectProperty ;
+    rdf:type owl:SymmetricProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range sei-co:Company ;
+    rdfs:label "competes with"@en .
+
+sei-co:partnersWith rdf:type owl:ObjectProperty ;
+    rdf:type owl:SymmetricProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range sei-co:Company ;
+    rdfs:label "partners with"@en .
+
+sei-co:acquired rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range sei-co:Company ;
+    rdfs:label "acquired"@en .
+
+sei-co:suppliesTo rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:Supplier ;
+    rdfs:range sei-co:Company ;
+    rdfs:label "supplies to"@en .
+
+sei-co:belongsToSector rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range sei-co:IndustrySector ;
+    rdfs:label "belongs to sector"@en .
+
+# Financial Relationships
+sei-fin:hasFinancialMetric rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range sei-fin:FinancialMetric ;
+    rdfs:label "has financial metric"@en .
+
+sei-fin:reportedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-fin:FinancialMetric ;
+    rdfs:range sei-doc:Document ;
+    rdfs:label "reported in"@en .
+
+sei-fin:hasSecurity rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:PublicCompany ;
+    rdfs:range sei-fin:Security ;
+    rdfs:label "has security"@en .
+
+# Document Relationships
+sei-doc:filedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-doc:SECFiling ;
+    rdfs:range sei-co:PublicCompany ;
+    rdfs:label "filed by"@en .
+
+sei-doc:hasSection rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-doc:Document ;
+    rdfs:range sei-doc:DocumentSection ;
+    rdfs:label "has section"@en .
+
+sei-doc:mentionsEntity rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-doc:Document ;
+    rdfs:range owl:Thing ;
+    rdfs:label "mentions entity"@en .
+
+sei-doc:containsMetric rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-doc:Document ;
+    rdfs:range sei-fin:FinancialMetric ;
+    rdfs:label "contains metric"@en .
+
+# Risk Relationships
+sei-risk:facesRisk rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range sei-risk:Risk ;
+    rdfs:label "faces risk"@en .
+
+sei-risk:disclosedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-risk:Risk ;
+    rdfs:range sei-doc:Document ;
+    rdfs:label "disclosed in"@en .
+
+sei-risk:affectsMetric rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-risk:Risk ;
+    rdfs:range sei-fin:FinancialMetric ;
+    rdfs:label "affects metric"@en .
+
+# Economic Relationships
+sei-econ:impactedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range sei-econ:EconomicIndicator ;
+    rdfs:label "impacted by"@en .
+
+sei-econ:correlatesWith rdf:type owl:ObjectProperty ;
+    rdf:type owl:SymmetricProperty ;
+    rdfs:domain sei-econ:EconomicIndicator ;
+    rdfs:range sei-fin:FinancialMetric ;
+    rdfs:label "correlates with"@en .
+
+# =============================================================================
+# DATA PROPERTIES
+# =============================================================================
+
+# Company Properties
+sei-co:ticker rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-co:PublicCompany ;
+    rdfs:range xsd:string ;
+    rdfs:label "ticker symbol"@en .
+
+sei-co:cik rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-co:PublicCompany ;
+    rdfs:range xsd:string ;
+    rdfs:label "CIK number"@en ;
+    rdfs:comment "SEC Central Index Key"@en .
+
+sei-co:companyName rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range xsd:string ;
+    rdfs:label "company name"@en .
+
+sei-co:headquarters rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range xsd:string ;
+    rdfs:label "headquarters"@en .
+
+sei-co:foundedYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "founded year"@en .
+
+sei-co:employeeCount rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-co:Company ;
+    rdfs:range xsd:integer ;
+    rdfs:label "employee count"@en .
+
+# Financial Properties
+sei-fin:value rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-fin:FinancialMetric ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "value"@en .
+
+sei-fin:currency rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-fin:FinancialMetric ;
+    rdfs:range xsd:string ;
+    rdfs:label "currency"@en .
+
+sei-fin:fiscalYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-fin:FinancialMetric ;
+    rdfs:range xsd:gYear ;
+    rdfs:label "fiscal year"@en .
+
+sei-fin:fiscalQuarter rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-fin:FinancialMetric ;
+    rdfs:range xsd:string ;
+    rdfs:label "fiscal quarter"@en .
+
+sei-fin:reportingDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-fin:FinancialMetric ;
+    rdfs:range xsd:date ;
+    rdfs:label "reporting date"@en .
+
+# Document Properties
+sei-doc:filingDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-doc:SECFiling ;
+    rdfs:range xsd:date ;
+    rdfs:label "filing date"@en .
+
+sei-doc:accessionNumber rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-doc:SECFiling ;
+    rdfs:range xsd:string ;
+    rdfs:label "accession number"@en .
+
+sei-doc:documentUrl rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-doc:Document ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "document URL"@en .
+
+sei-doc:extractedText rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-doc:DocumentSection ;
+    rdfs:range xsd:string ;
+    rdfs:label "extracted text"@en .
+
+# Risk Properties
+sei-risk:severity rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-risk:Risk ;
+    rdfs:range xsd:string ;
+    rdfs:label "severity"@en ;
+    rdfs:comment "High, Medium, Low"@en .
+
+sei-risk:likelihood rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-risk:Risk ;
+    rdfs:range xsd:string ;
+    rdfs:label "likelihood"@en .
+
+sei-risk:riskDescription rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-risk:Risk ;
+    rdfs:range xsd:string ;
+    rdfs:label "risk description"@en .
+
+# Economic Properties  
+sei-econ:indicatorValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-econ:EconomicIndicator ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "indicator value"@en .
+
+sei-econ:observationDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-econ:EconomicIndicator ;
+    rdfs:range xsd:date ;
+    rdfs:label "observation date"@en .
+
+sei-econ:dataSource rdf:type owl:DatatypeProperty ;
+    rdfs:domain sei-econ:EconomicIndicator ;
+    rdfs:range xsd:string ;
+    rdfs:label "data source"@en .
+
+# =============================================================================
+# INDIVIDUALS (Sample Data)
+# =============================================================================
+
+# Sectors
+sei-co:Technology rdf:type sei-co:TechnologySector ;
+    rdfs:label "Technology"@en .
+
+sei-co:Healthcare rdf:type sei-co:HealthcareSector ;
+    rdfs:label "Healthcare"@en .
+
+sei-co:Financials rdf:type sei-co:FinancialSector ;
+    rdfs:label "Financials"@en .
+
+sei-co:ConsumerGoods rdf:type sei-co:ConsumerSector ;
+    rdfs:label "Consumer Goods"@en .
+
+sei-co:Energy rdf:type sei-co:EnergySector ;
+    rdfs:label "Energy"@en .
